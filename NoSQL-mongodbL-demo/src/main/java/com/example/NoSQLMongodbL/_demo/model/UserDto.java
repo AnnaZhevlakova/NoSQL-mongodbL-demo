@@ -1,14 +1,25 @@
 package com.example.NoSQLMongodbL._demo.model;
 
-public class UserDTO {
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+public class UserDto {
 
     private String id;
+    
+    @NotBlank
     private String name;
+
+    @NotBlank
     private String email;
+
+    @NotNull
+    @Min(1)
     private int age;
 
 
-    public UserDTO(String id, String name, String email, int age) {
+    public UserDto(String id, String name, String email, int age) {
         this.id = id;
         this.name = name;
         this.email = email;

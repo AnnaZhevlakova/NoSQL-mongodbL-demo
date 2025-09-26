@@ -1,28 +1,30 @@
 package com.example.NoSQLMongodbL._demo.service;
 
-import com.example.NoSQLMongodbL._demo.model.UserDTO;
+import com.example.NoSQLMongodbL._demo.contracts.CreateUserRequest;
+import com.example.NoSQLMongodbL._demo.model.UserDto;
 import com.example.NoSQLMongodbL._demo.model.UserFilter;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class UserService {
-    public UserDTO getUser(String id) {
+    public UserDto getUser(String id) {
         throw new UnsupportedOperationException("Method not implemented yet");
     }
 
-    public List<UserDTO> getUsersByFilter(UserFilter filter) {
+    public List<UserDto> getUsersByFilter(UserFilter filter) {
         throw new UnsupportedOperationException("Method not implemented yet");
     }
 
 
-    public String createUser(UserDTO user) {
+    public String createUser( UserDto user) {
         throw new UnsupportedOperationException("Method not implemented yet");
 
     }
 
-    public boolean updateUser(UserDTO user) {
+    public boolean updateUser(UserDto user) {
         throw new UnsupportedOperationException("Method not implemented yet");
 
     }
