@@ -1,20 +1,26 @@
-package com.example.NoSQLMongodbL._demo.model;
+package com.example.NoSQLMongodbL._demo.entity;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
-@Document(collation = "users")
-@Data
+@Document
 public class User {
     @Id
     private String id;
+
+    @Field("name")
     private String name;
+
+    @Field("email")
     private String email;
+
+    @Field("age")
     private int age;
 
 
-    public User(String id, String name, String email, int age){
+    public User(String id, String name, String email, int age) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -22,6 +28,7 @@ public class User {
     }
 
     public String getId() {
+
         return id;
     }
 
@@ -32,20 +39,24 @@ public class User {
     public String getName() {
         return name;
     }
-    public void setName(String name){
+
+    public void setName(String name) {
         this.name = name;
     }
-    public String getEmail(){
+
+    public String getEmail() {
         return email;
     }
-    public void setEmail(String email){
+
+    public void setEmail(String email) {
         this.email = email;
     }
 
     public int getAge() {
         return age;
     }
-    public void setAge(int age){
+
+    public void setAge(int age) {
         this.age = age;
     }
 }
