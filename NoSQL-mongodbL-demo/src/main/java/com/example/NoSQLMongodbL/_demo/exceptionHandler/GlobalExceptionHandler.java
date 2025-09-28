@@ -29,7 +29,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handlerGlobalException(Exception ex) throws Exception {
-        logger.error(String.format("message: %s | stackTrace: %s", ex.getMessage(),StackTraceUtil.getStackTraceAsString(ex) ));
+        logger.error(String.format("message: %s | stackTrace: %s", ex.getMessage(), StackTraceUtil.getStackTraceAsString(ex)));
 
         ObjectMapper mapper = new ObjectMapper();
 

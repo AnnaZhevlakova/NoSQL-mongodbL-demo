@@ -4,7 +4,7 @@ public class ErrorDto {
     private String message;
     private Integer errorCode;
 
-    public  ErrorDto( String message,Integer errorCode){
+    public ErrorDto(String message, Integer errorCode) {
         this.message = message;
         this.errorCode = errorCode;
 

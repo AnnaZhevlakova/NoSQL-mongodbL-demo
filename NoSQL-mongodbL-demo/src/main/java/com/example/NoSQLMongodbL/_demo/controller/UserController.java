@@ -27,14 +27,14 @@ public class UserController {
     }
 
     @PostMapping("byFilter")
-    public ResponseEntity<?> getUsers(@RequestBody UserFilter filter){
+    public ResponseEntity<?> getUsers(@RequestBody UserFilter filter) {
         var result = userService.getUsersByFilter(filter);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<?> createUser(@Valid @RequestBody CreateUserRequest createUserRequest) {
-        var userDto = new UserDto(null,createUserRequest.getName(),createUserRequest.getEmail(),createUserRequest.getAge());
+        var userDto = new UserDto(null, createUserRequest.getName(), createUserRequest.getEmail(), createUserRequest.getAge());
         var result = userService.createUser(userDto);
         return new ResponseEntity<>(result, HttpStatus.OK);
 
