@@ -1,5 +1,6 @@
 package com.example.NoSQLMongodbL._demo.exceptionHandler;
 
+import com.example.NoSQLMongodbL._demo.StackTraceUtil;
 import com.example.NoSQLMongodbL._demo.controller.UserController;
 import com.example.NoSQLMongodbL._demo.exceptions.UserException;
 import com.example.NoSQLMongodbL._demo.model.ErrorDto;
@@ -9,13 +10,15 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+@RestControllerAdvice
 public class GlobalExceptionHandler {
     private static final Logger logger = LogManager.getLogger(UserController.class);
 
     @ExceptionHandler(UserException.class)
     public ResponseEntity<String> handlerAppException(UserException ex) throws Exception {
-        logger.error(String.format("message: %s | stackTrace: %s", ex.getMessage(), ex.getStackTrace().toString()));
+        logger.error(String.format("message: %s | stackTrace: %s", ex.getMessage(), StackTraceUtil.getStackTraceAsString(ex)));
 
         ObjectMapper mapper = new ObjectMapper();
 
@@ -26,7 +29,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handlerGlobalException(Exception ex) throws Exception {
-        logger.error(String.format("message: %s | stackTrace: %s", ex.getMessage(), ex.getStackTrace().toString()));
+        logger.error(String.format("message: %s | stackTrace: %s", ex.getMessage(),StackTraceUtil.getStackTraceAsString(ex) ));
 
         ObjectMapper mapper = new ObjectMapper();
 

@@ -26,8 +26,8 @@ public class UserController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @PostMapping
-    public ResponseEntity<?> getUsers(@RequestBody UserFilter filter) {
+    @PostMapping("byFilter")
+    public ResponseEntity<?> getUsers(@RequestBody UserFilter filter){
         var result = userService.getUsersByFilter(filter);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
